@@ -1,0 +1,38 @@
+<div class="edit-user-container">
+<div class="edit-title">
+  <h1 class="name">{{ data.fname + " " + data.name }}</h1>
+  <a class="icon is-small exit-cross" [mat-dialog-close]></a>
+</div>
+<div class="edit-form" [formGroup]="EditFormControlGroup">
+  <input
+  formControlName="fname"
+    class="text-input"
+    type="text"
+    
+    id="fname-edit"
+    value="{{ data.fname }}"
+  />
+  <input
+  formControlName="name"
+    class="text-input"
+    type="text"
+    
+    id="name-edit"
+    value="{{ data.name }}"
+  />
+  <input
+  formControlName="mname"
+    class="text-input"
+    type="text"
+    id="mname-edit"
+    value="{{ data.mname }}"
+  />
+  <app-dropdown
+    [optionList]="statusList"
+    [defaultOption]="getDefaultOption()"
+    (selectedOptionEvent)="setStatus($event)"
+  ></app-dropdown>
+
+  <button class="button is-small" type="submit" (click)="onSubmit()" [mat-dialog-close] [disabled]="EditFormControlGroup.invalid">Сохранить</button>
+</div>
+</div>

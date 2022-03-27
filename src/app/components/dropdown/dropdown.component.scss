@@ -1,0 +1,39 @@
+.dropdown-container {
+    height: 48px;
+    width: 260px;
+    line-height: 20px;
+
+    .text-input {
+        width: 260px;
+    }
+  .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 48px;
+    width: 260px;
+    box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    a {
+      padding: 1em;
+      margin-bottom: 8px;
+      color: #d0c9d6;
+      font-size: 15px;
+    }
+    a:hover {
+      cursor: pointer;
+      color: #3f3356;
+    }
+  }
+
+  .active {
+    opacity: 1;
+    transform: translateY(10px);
+    pointer-events: all;
+  }
+}
+
+

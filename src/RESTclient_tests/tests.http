@@ -1,0 +1,28 @@
+POST https://bumagi-frontend-test.herokuapp.com/auth
+Content-Type: application/json
+
+{
+	"login": "test@example.com",
+	"password": "1q2w3e"
+}
+
+
+###
+
+GET https://bumagi-frontend-test.herokuapp.com/users?status=2
+Authorization: token 7c217d7b1444ee1a3d6b81ff1f0b50eb
+
+
+###
+GET https://bumagi-frontend-test.herokuapp.com/
+Authorization: token 7c217d7b1444ee1a3d6b81ff1f0b50eb
+
+###
+
+PATCH https://bumagi-frontend-test.herokuapp.com/users/1
+Authorization: token 7c217d7b1444ee1a3d6b81ff1f0b50eb
+Content-Type: application/json
+
+{
+	"fname": "Ивано"
+}

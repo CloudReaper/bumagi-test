@@ -1,0 +1,47 @@
+<div class="users-container" >
+  <div class="header-menu">
+    <div class="control">
+      <a
+        class="menu-option"
+        [routerLink]="['/users']"
+        [queryParams]="{ status: 'all' }"
+        routerLinkActive="is-active"
+      >
+        Все
+        <div class="selection-mark"></div
+      ></a>
+      <a
+        class="menu-option"
+        [routerLink]="['/users']"
+        [queryParams]="{ status: 2 }"
+        routerLinkActive="is-active"
+        >Заблокированные
+        <div class="selection-mark"></div
+      ></a>
+      <a
+        class="menu-option"
+        [routerLink]="['/users']"
+        [queryParams]="{ status: 0 }"
+        routerLinkActive="is-active"
+        >Активные
+        <div class="selection-mark"></div
+      ></a>
+    </div>
+  </div>
+  <app-notification *ngIf="showAlert" [title]="AlertTitle"></app-notification>
+  <div class="loader-container" *ngIf="!isLoaded">
+    <div class="box">
+      <div class="loader"></div>
+    </div>
+  </div>
+  <div *ngIf="Users$ | async as Users">
+    <div class="list-container" *ngIf="isLoaded">
+      <div class="list-item" *ngFor="let user of Users">
+        <app-user-list-item
+          [user]="user"
+          *ngIf="isLoaded"
+        ></app-user-list-item>
+      </div>
+    </div>
+  </div>
+</div>

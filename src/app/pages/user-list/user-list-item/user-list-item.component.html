@@ -1,0 +1,16 @@
+<a  class="edit-dialog" (click)="openDialog()">
+
+  <div class="user-list-item-container">
+    <img
+    src="../../../../assets/avatar_placeholder/avatar_placeholder.png"
+    alt="avatar placeholder"
+    />
+    <div class="name">
+      {{ user.fname + " " + user.name[0] + "." + user.mname[0] }}
+    </div>
+    <div class="balance">Баланс: {{ this.formatBalance() }}</div>
+    <div class="last-edit">{{ getLastEditTime(user.lastUpdatedAt) }}</div>
+    <div class="status">{{ getUserStatus() }}</div>
+  </div>
+  
+</a>

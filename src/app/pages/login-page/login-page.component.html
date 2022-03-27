@@ -1,0 +1,25 @@
+<div class="centered-content">
+  <div class="modal-box">
+    <div class="field"[formGroup]="loginControlGroup">
+      <div class="control" >
+        <input type="text" class="text-input" placeholder="Login" formControlName="login" tabindex="0" />
+      </div>
+      <div class="control has-icon-right">
+        <input
+        formControlName="password"
+          type="{{ hidePassword ? 'password' : 'text' }}"
+          class="text-input"
+          placeholder="Enter your pasword"
+          (keyup.enter)="loginControlGroup.valid? onSubmit() : null"
+          tabindex="0"
+        />
+        <i
+          class="icon eye is-small {{ hidePassword ? '' : 'is-active' }}"
+          (click)="onHidePasswordClicked()"
+          disabled
+        ></i>
+      </div>
+      <button type="submit" class="button is-small" (click)="onSubmit()" [disabled]="loginControlGroup.invalid" >ВОЙТИ</button>
+    </div>
+  </div>
+</div>
