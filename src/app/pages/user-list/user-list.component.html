@@ -1,4 +1,4 @@
-<div class="users-container" >
+<div class="users-container">
   <div class="header-menu">
     <div class="control">
       <a
@@ -37,10 +37,7 @@
   <div *ngIf="Users$ | async as Users">
     <div class="list-container" *ngIf="isLoaded">
       <div class="list-item" *ngFor="let user of Users">
-        <app-user-list-item
-          [user]="user"
-          *ngIf="isLoaded"
-        ></app-user-list-item>
+        <app-user-list-item [user]="user" *ngIf="isLoaded"></app-user-list-item>
       </div>
     </div>
   </div>

@@ -1,13 +1,15 @@
 <div class="dropdown-container">
-    <a class="control has-icon-right" (click)="openDropdown()">
-        <div class="text-input">{{selectedOption.name}}</div>
-        <i class="icon dropdown-arrow is-small"></i>
-    </a>
+  <a class="control has-icon-right" (click)="openDropdown()">
+    <div class="text-input">{{ selectedOption.name }}</div>
+    <i class="icon dropdown-arrow is-small"></i>
+  </a>
 
-    <div class="dropdown-content {{menuOpened? 'active' : ''}}">
-        <a class="option" (click)="setSelectedOption(option.value)" *ngFor="let option of optionList">{{option.name}}</a>
-        
-    </div>
-    
-    
+  <div class="dropdown-content {{ menuOpened ? 'active' : '' }}">
+    <a
+      class="option"
+      (click)="setSelectedOption(option.value)"
+      *ngFor="let option of optionList"
+      >{{ option.name }}</a
+    >
+  </div>
 </div>

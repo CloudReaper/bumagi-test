@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { shareReplay, tap } from 'rxjs';
@@ -8,7 +7,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
   providedIn: 'root',
 })
 export class AuthService {
-  readonly ROOT_URL = 'https://bumagi-frontend-test.herokuapp.com'
+  readonly ROOT_URL = 'https://bumagi-frontend-test.herokuapp.com';
   AUTH_ROOT: string = 'auth';
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -17,16 +16,17 @@ export class AuthService {
   }
 
   login(login: string, password: string) {
-    return this.http.post(`${this.ROOT_URL}/${this.AUTH_ROOT}`, { login,password }).pipe(
-      shareReplay(),
-      tap((res: HttpResponse<any>) => {
-        console.log(res)
-        this.setSession(res.headers.get('Authorization'));
-      })
-    );
+    return this.http
+      .post(`${this.ROOT_URL}/${this.AUTH_ROOT}`, { login, password})
+      .pipe(
+        shareReplay(),
+        tap((res: HttpResponse<any>) => {
+          this.setSession(res.headers.get('Authorization'));
+        })
+      );
   }
 
   getAuthorizationToken() {
-    return localStorage.getItem('Authorization')
+    return localStorage.getItem('Authorization');
   }
 }
