@@ -17,7 +17,11 @@ export class AuthService {
 
   login(login: string, password: string) {
     return this.http
-      .post(`${this.ROOT_URL}/${this.AUTH_ROOT}`, { login, password})
+      .post(
+        `${this.ROOT_URL}/${this.AUTH_ROOT}`,
+        { login, password },
+        { observe: 'response' }
+      )
       .pipe(
         shareReplay(),
         tap((res: HttpResponse<any>) => {
